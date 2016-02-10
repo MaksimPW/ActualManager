@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @project.name
+p
+  strong Description:
+  = @project.description
+p
+  strong Id parent:
+  = @project.id_parent
+
+= link_to 'Edit', edit_project_path(@project)
+'|
+= link_to 'Back', projects_path
