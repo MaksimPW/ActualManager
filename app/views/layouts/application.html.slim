@@ -5,7 +5,75 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    meta charset="utf-8" /
+    /! HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    /! WARNING: Respond.js doesn't work if you view the page via file://
+    /![if lt IE 9]
+      | <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script
+      | <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script
   body
-    #content
-      == yield
-      = render 'layouts/leftmenu'
+    #wrapper
+      /! Navigation
+      nav.navbar.navbar-inverse.navbar-fixed-top role="navigation"
+        /! Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button"
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand href="#"
+            span.glyphicon.glyphicon-user
+            |  Actual Manager
+        /! Top Menu Items
+        ul.nav.navbar-right.top-nav
+          li.dropdown
+            a.dropdown-toggle data-toggle="dropdown" href="#"
+              i.fa.fa-user
+              | User
+              b.caret
+            ul.dropdown-menu
+              li
+                a href="#"
+                  | Settings
+              li.divider
+              li
+                a href="#"
+                  | Log Out
+        /! Sidebar Menu Items - These collapse to the responsive navigation menu on small screens
+        .collapse.navbar-collapse.navbar-ex1-collapse
+          ul.nav.navbar-nav.side-nav
+            li.active
+              a href="#"
+                span.glyphicon.glyphicon-calendar
+                |  Дневной план
+            li
+              a href="#"
+                span.glyphicon.glyphicon-briefcase
+                |  Проекты
+            li
+              a href="#"
+                span.glyphicon.glyphicon-scale
+                |  Колесо жизни
+            li
+              a href="#"
+                span.glyphicon.glyphicon-dashboard
+                |  Статистика
+            li
+              a href="#"
+                span.glyphicon.glyphicon-tag
+                |  Контекст
+        /! /.navbar-collapse
+      #page-wrapper
+        .container-fluid
+          /! Page Heading
+          .row
+            .col-lg-12
+              h1.page-header
+                | Title
+                small  Description
+              ol.breadcrumb
+                li.active
+                  | Bred
+          /! /.row
+          == yield
