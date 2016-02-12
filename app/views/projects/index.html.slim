@@ -1,12 +1,9 @@
-h1 Listing projects
-table
+table.table
   thead
     tr
       th Name
       th Description
       th Id parent
-      th
-      th
       th
 
   tbody
@@ -15,10 +12,12 @@ table
         td = project.name
         td = project.description
         td = project.id_parent
-        td = link_to 'Show', project
-        td = link_to 'Edit', edit_project_path(project)
-        td = link_to 'Destroy', project, data: {:confirm => 'Are you sure?'}, :method => :delete
-
+        td
+          = link_to edit_project_path(project) do
+            span.glyphicon.glyphicon-pencil
+          span &nbsp; &nbsp;
+          = link_to project, data: {:confirm => 'Are you sure?'}, :method => :delete do
+            span.glyphicon.glyphicon-trash
 br
 
 = link_to 'New Project', new_project_path
