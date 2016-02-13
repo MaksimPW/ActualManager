@@ -9,7 +9,9 @@ table.table
   tbody
     - @projects.each do |project|
       tr
-        td = project.name
+        td
+          b
+            = link_to project.name, project
         td = project.description
         td = project.id_parent
         td

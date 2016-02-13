@@ -1,15 +1,33 @@
 p#notice = notice
-
-p
-  strong Name:
-  = @project.name
-p
-  strong Description:
+h3
+  strong
+    = @project.name
   = @project.description
-p
-  strong Id parent:
-  = @project.id_parent
-
-= link_to 'Edit', edit_project_path(@project)
-'|
-= link_to 'Back', projects_path
+= link_to '<< Back', projects_path
+table.table
+  thead
+    tr
+      th Name
+      th Description
+      th
+  tbody
+    - @project.lists.each do |list|
+      tr
+        td = list.name
+        td = list.description
+        td
+          = link_to edit_list_path(list) do
+            span.glyphicon.glyphicon-pencil
+          span &nbsp; &nbsp;
+          = link_to list, data: {:confirm => 'Are you sure?'}, :method => :delete do
+            span.glyphicon.glyphicon-trash
+br
+= form_for([@project, @project.lists.build]) do |f|
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.submit

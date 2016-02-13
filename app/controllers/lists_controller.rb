@@ -24,17 +24,9 @@ class ListsController < ApplicationController
   # POST /lists
   # POST /lists.json
   def create
-    @list = List.new(list_params)
-
-    respond_to do |format|
-      if @list.save
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
-        format.json { render :show, status: :created, location: @list }
-      else
-        format.html { render :new }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
-    end
+    @project = Project.find(params[:project_id])
+    @list = @project.lists.create!(params.require(:list).permit!)
+    redirect_to project_path(@project)
   end
 
   # PATCH/PUT /lists/1
@@ -69,6 +61,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:name, :description, :id_parent)
+      params.require(:list).permit(:name, :description, :project_id)
     end
 end
