@@ -1,0 +1,28 @@
+/! Brand and toggle get grouped for better mobile display
+.navbar-header
+  button.navbar-toggle data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button"
+    span.sr-only Toggle navigation
+    span.icon-bar
+    span.icon-bar
+    span.icon-bar
+  = link_to root_path, class: 'navbar-brand' do
+      span.glyphicon.glyphicon-user
+      |  Actual Manager
+ul.nav.navbar-right.top-nav
+  li
+    a
+      span.glyphicon.glyphicon-hourglass
+      |  Посчитать время
+  li.dropdown
+    a.dropdown-toggle data-toggle="dropdown"
+      i.fa.fa-user
+      | Пользователь
+      b.caret
+    ul.dropdown-menu
+      li
+        a
+          | Настройки
+      li.divider
+      li
+        a
+          | Выйти

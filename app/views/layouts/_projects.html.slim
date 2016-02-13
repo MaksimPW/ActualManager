@@ -1,0 +1,29 @@
+.col-lg-6
+  h1.page-header
+    | Listing projects
+    .btn-group.pull-right
+      a.btn.btn-success Создать
+      a.btn.btn-success.dropdown-toggle aria-expanded="false" data-toggle="dropdown"
+        span.caret
+      ul.dropdown-menu
+        li
+          a List
+        li
+          a Project
+  ol.breadcrumb
+    li
+      = link_to 'Home', projects_path
+    li
+      - if current_page?(project_path(:id))
+        = @project.name
+  .panel.panel-default.projects-frame
+    == yield
+.col-lg-6
+  h1.page-header
+    | Listing tasks
+    a.btn.btn-success.pull-right Создать
+  ol.breadcrumb
+    li
+      a Task
+  .panel.panel-default.projects-frame
+    p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
