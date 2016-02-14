@@ -1,25 +1,23 @@
 table.table
   thead
     tr
-      th Name
-      th Description
-      th Id parent
-      th
+      th.col-md-4 Название
+      th.col-md-7 Описание
+      th.col-md-1
 
   tbody
     - @projects.each do |project|
       tr
         td
           b
-            = link_to project.name, project
+            h4.span.glyphicon.glyphicon-book
+            span &nbsp;
+            = link_to project do
+              =  project.name
         td = project.description
-        td = project.id_parent
         td
           = link_to edit_project_path(project) do
             span.glyphicon.glyphicon-pencil
-          span &nbsp; &nbsp;
+            span 	&nbsp;
           = link_to project, data: {:confirm => 'Are you sure?'}, :method => :delete do
             span.glyphicon.glyphicon-trash
-br
-
-= link_to 'New Project', new_project_path

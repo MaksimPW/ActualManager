@@ -1,24 +1,29 @@
 .col-lg-6
+  /! FRAME
   h1.page-header
     | Listing projects
     .btn-group.pull-right
-      a.btn.btn-success Создать
+      = link_to root_path, class: 'btn btn-success' do
+        | Создать
       a.btn.btn-success.dropdown-toggle aria-expanded="false" data-toggle="dropdown"
         span.caret
       ul.dropdown-menu
         li
-          a List
+          = link_to new_project_path do
+            | Project
         li
-          a Project
+          = link_to new_list_path do
+            | List
   ol.breadcrumb
     li
       = link_to 'Home', projects_path
     li
-      - if current_page?(project_path(:id))
+      - if params[:id]!= nil
         = @project.name
   .panel.panel-default.projects-frame
     == yield
 .col-lg-6
+  /! FRAME
   h1.page-header
     | Listing tasks
     a.btn.btn-success.pull-right Создать

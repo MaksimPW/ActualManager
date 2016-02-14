@@ -2,12 +2,15 @@ p#notice = notice
 table.table
   thead
     tr
+      th
       th Name
       th Description
       th
   tbody
     - @project.lists.each do |list|
       tr
+        td
+          span.glyphicon.glyphicon-file
         td = list.name
         td = list.description
         td
@@ -17,12 +20,13 @@ table.table
           = link_to list, data: {:confirm => 'Are you sure?'}, :method => :delete do
             span.glyphicon.glyphicon-trash
 br
+
 = form_for([@project, @project.lists.build]) do |f|
-  .field
+  .form-group
     = f.label :name
     = f.text_field :name
-  .field
+  .form-group
     = f.label :description
     = f.text_area :description
-  .field
-    = f.submit
+  .form-group
+    = f.submit class: "btn btn-primary"
