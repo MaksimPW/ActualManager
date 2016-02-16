@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Status:
+  = @task.status
+p
+  strong Name:
+  = @task.name
+p
+  strong Description:
+  = @task.description
+p
+  strong Goal time:
+  = @task.goal_time
+p
+  strong Duration time:
+  = @task.duration_time
+p
+  strong List:
+  = @task.list
+
+= link_to 'Edit', edit_task_path(@task)
+'|
+= link_to 'Back', tasks_path
