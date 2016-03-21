@@ -16,8 +16,11 @@
     = f.label :description
     = f.text_field :description
   .field
-    = f.label :goal_time
-    = f.datetime_select :goal_time
+    = f.label :start_at
+    = f.datetime_select :start_at
+  .field
+    = f.label :end_at
+    = f.datetime_select :end_at
   .field
     = f.label :duration_time
     = f.number_field :duration_time
